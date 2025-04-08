@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolia AI Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .chat-container {
+            height: calc(100vh - 200px);
+        }
+        .message {
+            max-width: 80%;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            border-radius: 15px 15px 0 15px;
+        }
+        .ai-message {
+            background-color: #f5f5f5;
+            border-radius: 15px 15px 15px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h1 class="text-3xl font-bold text-center mb-8 text-blue-600">Dolia AI Assistant</h1>
+            
+            <div class="chat-container overflow-y-auto mb-6 p-4 bg-gray-50 rounded-lg" id="chatContainer">
+                <div class="ai-message p-4 mb-4 message">
+                    <p class="text-gray-800">Xin chào! Tôi là Dolia AI Assistant. Tôi có thể giúp gì cho bạn?</p>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <input type="text" id="commandInput" 
+                       class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                       placeholder="Nhập lệnh của bạn...">
+                <button onclick="executeCommand()" 
+                        class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Gửi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const commandInput = document.getElementById('commandInput');
+        const chatContainer = document.getElementById('chatContainer');
+
+        commandInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                executeCommand();
+            }
+        });
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `${isUser ? 'user-message' : 'ai-message'} p-4 mb-4 message`;
+            messageDiv.innerHTML = `<p class="text-gray-800">${message}</p>`;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        async function executeCommand() {
+            const command = commandInput.value.trim();
+            if (!command) return;
+
+            // Hiển thị lệnh của người dùng
+            addMessage(command, true);
+            commandInput.value = '';
+
+            try {
+                const response = await fetch('/execute', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ command }),
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    addMessage('Đã thực hiện lệnh thành công!');
+                } else {
+                    addMessage(`Lỗi: ${data.error}`);
+                }
+            } catch (error) {
+                addMessage('Đã xảy ra lỗi khi thực hiện lệnh.');
+            }
+        }
+    </script>
+</body>
+</html> 

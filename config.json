@@ -1,0 +1,40 @@
+{
+    "api": {
+        "gemini_key": "YOUR_GEMINI_API_KEY",
+        "timeout": 30
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "main.log",
+        "max_size": 10485760,
+        "backup_count": 5
+    },
+    "applications": {
+        "chrome": {
+            "paths": [
+                "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+                "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+            ]
+        },
+        "notepad": {
+            "paths": [
+                "C:\\Windows\\System32\\notepad.exe"
+            ]
+        },
+        "explorer": {
+            "paths": [
+                "C:\\Windows\\explorer.exe"
+            ],
+            "special_folders": {
+                "downloads": "%USERPROFILE%\\Downloads",
+                "documents": "%USERPROFILE%\\Documents",
+                "desktop": "%USERPROFILE%\\Desktop"
+            }
+        }
+    },
+    "system": {
+        "action_timeout": 30,
+        "max_retries": 3,
+        "retry_delay": 1
+    }
+} 

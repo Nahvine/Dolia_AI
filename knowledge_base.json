@@ -1,0 +1,20 @@
+{
+  "successful_patterns": {
+    "command": [
+      {
+        "action": {
+          "type": "command",
+          "command": "mở notepad"
+        },
+        "state": null,
+        "result": {
+          "success": true,
+          "message": "Đã mở notepad"
+        },
+        "timestamp": 1744111275.7043145
+      }
+    ]
+  },
+  "failed_patterns": {},
+  "last_updated": 1744111275.7043145
+}
