@@ -80,4 +80,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Google Gemini API for AI capabilities
 - Python community for excellent libraries
-- Contributors and testers 
+- Contributors and testers
