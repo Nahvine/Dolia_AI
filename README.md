@@ -2,6 +2,17 @@
 
 DoliaAI is an advanced AI system capable of controlling and interacting with your computer through natural language commands. It uses computer vision and machine learning to understand screen states and execute complex actions. This open-source project aims to create an AI assistant that can see, think, and act like a human when controlling a computer.
 
+## ⚠️ Beta Status
+
+**DoliaAI is currently in beta development.** While we're excited to share this project with the community, please be aware that:
+
+- The system may encounter unexpected errors or bugs
+- Performance may vary depending on your system configuration
+- Some features may not work as expected or may be incomplete
+- Regular updates and fixes are being implemented
+
+We encourage users to report any issues they encounter to help improve the system. Your feedback is valuable to us!
+
 ## Vision & Inspiration
 
 DoliaAI was inspired by the vision of creating an AI that can truly understand and interact with a computer like a human would. The project combines cutting-edge AI technologies with practical computer control to create a system that can:
@@ -49,6 +60,18 @@ For example, when asked to "open YouTube", DoliaAI will:
 - **Contextual Understanding**: Maintain awareness of the current task context
 - **Error Recovery**: Try alternative approaches when initial attempts fail
 - **Continuous Learning**: Improve performance over time through experience
+
+## Known Issues
+
+As a beta release, DoliaAI may encounter the following issues:
+
+- **Screen Recognition Limitations**: May not correctly identify all UI elements in certain applications
+- **Timing Sensitivity**: Some actions may fail due to system response time variations
+- **API Rate Limits**: Gemini API has usage limits that may affect performance
+- **Application Compatibility**: Some applications may not respond as expected to automated controls
+- **Resource Usage**: High CPU/GPU usage during continuous screen analysis
+
+We're actively working to address these issues in future updates.
 
 ## Installation
 
